@@ -1,0 +1,11 @@
+{
+    "DESIGN_NAME": "eth_rx_gateway_core",
+
+    "VERILOG_FILES": "dir::src/*.sv",
+
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 20,
+
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY_PCT": 55
+}
