@@ -1,0 +1,23 @@
+# OpenLane generated runs
+runs/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Backup files
+*~
+
+# Python cache
+__pycache__/
+
+# VS Code
+.vscode/
+
+# Vim
+*.swp
+
+# macOS
+.DS_Store
