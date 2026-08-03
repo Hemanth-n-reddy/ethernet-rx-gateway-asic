@@ -1,10 +1,11 @@
 # Ethernet RX Gateway ASIC
 
-![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-blue)
-![OpenLane](https://img.shields.io/badge/OpenLane-2.0-success)
-![Sky130](https://img.shields.io/badge/PDK-Sky130-orange)
-![ASIC](https://img.shields.io/badge/Design-ASIC-red)
-![License](https://img.shields.io/badge/License-MIT-green)
+![SystemVerilog](https://img.shields.io/badge/HDL-SystemVerilog-blue)
+![ASIC](https://img.shields.io/badge/Design-ASIC-green)
+![OpenLane](https://img.shields.io/badge/OpenLane-RTL--to--GDS-orange)
+![SKY130](https://img.shields.io/badge/PDK-SKY130-red)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-In%20Progress-brightgreen)
 
 An Ethernet Receive (RX) Gateway ASIC designed using **SystemVerilog** and implemented using the **OpenLane RTL-to-GDSII ASIC flow** targeting the **Sky130 HD Process Design Kit (PDK)**.
 
