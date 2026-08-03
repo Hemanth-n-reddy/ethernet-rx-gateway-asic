@@ -236,6 +236,40 @@ The floorplan below shows the chip floorplan generated during the OpenLane physi
 | Core Margin | 60 µm |
 | Row Height | 2.72 µm |
 
+# 📊 Implementation Results
+
+The Ethernet RX Gateway ASIC is implemented using the OpenLane RTL-to-GDSII flow targeting the SKY130 HD Process Design Kit.
+
+## Results Summary
+
+| Metric | Value |
+|--------|------:|
+| RTL Language | SystemVerilog |
+| PDK | SKY130 HD |
+| Flow | OpenLane 2 |
+| Design Type | Ethernet RX Gateway |
+| Target Frequency | 50 MHz |
+
+## 📸 Physical Design Snapshots
+
+### Floorplan
+
+<p align="center">
+  <img src="docs/images/floorplan_openlane.png" width="900">
+</p>
+
+### Placement
+*Coming Soon*
+
+### Clock Tree Synthesis (CTS)
+*Coming Soon*
+
+### Routing
+*Coming Soon*
+
+### Final GDSII Layout
+*Coming Soon*
+
 **Key Features**
 - Square die layout (1000 µm × 1000 µm)
 - Dedicated I/O pad ring
