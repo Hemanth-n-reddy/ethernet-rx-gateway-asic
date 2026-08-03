@@ -1,11 +1,10 @@
 # ethernet-rx-gateway-asic
 # Ethernet RX Gateway ASIC
-
 ![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-blue)
-![OpenLane](https://img.shields.io/badge/OpenLane-2.0-green)
+![OpenLane](https://img.shields.io/badge/OpenLane-2.0-success)
 ![Sky130](https://img.shields.io/badge/PDK-Sky130-orange)
-![ASIC](https://img.shields.io/badge/Flow-RTL--to--GDSII-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+![ASIC](https://img.shields.io/badge/Design-ASIC-red)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Overview
 
