@@ -11,6 +11,21 @@ An Ethernet Receive (RX) Gateway ASIC designed using **SystemVerilog** and imple
 
 ---
 
+# 📑 Table of Contents
+
+- [Overview](#overview)
+- [Project Objectives](#project-objectives)
+- [System Architecture](#system-architecture)
+- [RTL Module Hierarchy](#rtl-module-hierarchy)
+- [RMII Receive Data Flow](#rmii-receive-data-flow)
+- [OpenLane RTL → GDSII Flow](#openlane-rtl--gdsii-flow)
+- [OpenLane Floorplan](#openlane-floorplan)
+- [Implementation Results](#implementation-results)
+- [Project Roadmap](#project-roadmap)
+- [Technologies Used](#technologies-used)
+- [Future Work](#future-work)
+- [License](#license)
+
 # 📖 Project Overview
 
 The Ethernet RX Gateway ASIC is a modular hardware accelerator that receives Ethernet frames through the RMII interface, parses incoming packets, buffers payload data, and forwards synchronized packets to the gateway interface.
@@ -346,6 +361,17 @@ Detailed project documentation is available below.
 - ASIC Tape-Out Preparation
 
 ---
+
+# 🔮 Future Work
+
+The following enhancements are planned for future iterations of the project:
+
+- Complete OpenLane physical design flow
+- Optimize timing and area
+- Perform DRC and LVS verification
+- Generate final GDSII layout
+- Add FPGA implementation for functional validation
+- Extend the design to support Gigabit Ethernet
 
 # 📄 License
 
