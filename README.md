@@ -1,33 +1,63 @@
-# ethernet-rx-gateway-asic
 # Ethernet RX Gateway ASIC
+
 ![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-blue)
 ![OpenLane](https://img.shields.io/badge/OpenLane-2.0-success)
 ![Sky130](https://img.shields.io/badge/PDK-Sky130-orange)
 ![ASIC](https://img.shields.io/badge/Design-ASIC-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-## Overview
-
-This project implements an **Ethernet RX Gateway Core ASIC** using **SystemVerilog** and the **OpenLane 2** RTL-to-GDSII flow with the **Sky130** Process Design Kit (PDK).
-
-The design receives Ethernet frames through an RMII interface, buffers incoming packets, parses Ethernet frames, and forwards valid data to the gateway logic. The complete ASIC implementation includes RTL design, synthesis, floorplanning, placement, clock tree synthesis (CTS), routing, timing analysis, and GDSII generation.
+An Ethernet Receive (RX) Gateway ASIC designed using **SystemVerilog** and implemented using the **OpenLane RTL-to-GDSII ASIC flow** targeting the **Sky130 HD Process Design Kit (PDK)**.
 
 ---
 
-## Features
+# 📖 Project Overview
+
+The Ethernet RX Gateway ASIC is a modular hardware accelerator that receives Ethernet frames through the RMII interface, parses incoming packets, buffers payload data, and forwards synchronized packets to the gateway interface.
+
+The project demonstrates a complete **ASIC Design Flow** from RTL design to GDSII generation using open-source EDA tools.
+
+---
+
+# 🖼️ Project Overview
+
+<p align="center">
+  <img src="docs/images/project_overview.png" width="1000">
+</p>
+
+---
+
+# ✨ Features
 
 - RMII Ethernet Receiver
 - Ethernet Frame Parser
 - Packet Buffer
-- Synchronous FIFO
-- Gateway Processing Logic
-- RTL written in SystemVerilog
-- ASIC implementation using OpenLane 2
-- Sky130 open-source PDK
+- Synchronization FIFO
+- Modular SystemVerilog RTL
+- ASIC Ready Design
+- OpenLane RTL-to-GDSII Flow
+- Sky130 HD Technology
+- Timing Clean Implementation
+- Open Source ASIC Toolchain
 
 ---
 
-## 📊 Implementation Summary
+# 🛠️ Tools & Technologies
+
+| Category | Tool |
+|----------|------|
+| RTL Design | SystemVerilog |
+| Synthesis | Yosys |
+| Physical Design | OpenLane 2 |
+| Physical Design Engine | OpenROAD |
+| Layout Viewer | KLayout |
+| DRC/LVS | Magic, Netgen |
+| Timing Analysis | OpenROAD STA |
+| PDK | Sky130 HD |
+| Version Control | Git & GitHub |
+
+---
+
+# 📊 Implementation Summary
 
 | Parameter | Value |
 |-----------|-------|
@@ -40,89 +70,139 @@ The design receives Ethernet frames through an RMII interface, buffers incoming 
 | Total Power | 1.003 mW |
 | Setup Violations | 0 |
 | Hold Violations | 0 |
-| GDS Generated | ✅ |
+| GDSII Generated | ✅ |
 
-## 📂 Repository Structure
+---
+
+# 🔄 ASIC Design Flow
+
+```text
+Specification
+      │
+      ▼
+RTL Design
+      │
+      ▼
+Functional Verification
+      │
+      ▼
+Logic Synthesis
+      │
+      ▼
+Floorplanning
+      │
+      ▼
+Placement
+      │
+      ▼
+Clock Tree Synthesis
+      │
+      ▼
+Routing
+      │
+      ▼
+Static Timing Analysis
+      │
+      ▼
+DRC / LVS
+      │
+      ▼
+GDSII Generation
+```
+
+---
+
+# 📂 Repository Structure
 
 ```text
 ethernet-rx-gateway-asic/
+│
 ├── rtl/
+│   ├── eth_rx_gateway_core.sv
+│   ├── eth_rx_path.sv
+│   ├── eth_packet_buffer.sv
+│   ├── eth_frame_parser.sv
+│   ├── rmii_rx.sv
+│   └── sync_fifo.sv
+│
 ├── openlane/
+│
 ├── reports/
+│
 ├── results/
-├── docs/
-├── verification/
+│
 ├── simulations/
+│
+├── verification/
+│
+├── docs/
+│   ├── architecture.md
+│   ├── rtl_design.md
+│   ├── verification.md
+│   ├── openlane_flow.md
+│   ├── results.md
+│   ├── future_work.md
+│   └── images/
+│       ├── project_overview.png
+│       ├── architecture.png
+│       ├── rtl_module_hierarchy.png
+│       ├── rmii_receive_data_flow.png
+│       ├── openlane_rtl_to_gdsii.png
+│       ├── asic_physical_design_flow.png
+│       └── gds_layout.png
+│
 ├── README.md
-└── LICENSE
+├── LICENSE
+└── .gitignore
 ```
 
-## RTL Modules
+---
 
-| Module | Description |
-|---------|-------------|
-| eth_rx_gateway_core | Top-level module |
-| rmii_rx | RMII receiver |
-| eth_rx_path | Receive datapath |
-| eth_frame_parser | Ethernet frame parser |
-| eth_packet_buffer | Packet buffer |
-| sync_fifo | Synchronous FIFO |
+# 📸 Project Images
+
+## System Architecture
+
+<p align="center">
+<img src="docs/images/architecture.png" width="850">
+</p>
 
 ---
 
-## ASIC Design Flow
+## RTL Module Hierarchy
 
-1. RTL Design
-2. Functional Verification
-3. Logic Synthesis
-4. Floorplanning
-5. Placement
-6. Clock Tree Synthesis
-7. Routing
-8. Timing Analysis
-9. Physical Verification
-10. GDSII Generation
+<p align="center">
+<img src="docs/images/rtl_module_hierarchy.png" width="700">
+</p>
 
 ---
 
-## Implementation Results
+## RMII Receive Data Flow
 
-| Metric | Result |
-|---------|--------|
-| Standard Cells | 1072 |
-| Cell Area | 10364.9 µm² |
-| Total Power | ~1.003 mW |
-| Setup Violations | 0 |
-| Hold Violations | 0 |
+<p align="center">
+<img src="docs/images/rmii_receive_data_flow.png" width="500">
+</p>
 
 ---
 
-## Tools Used
+## OpenLane RTL → GDSII Flow
 
-- SystemVerilog
-- OpenLane 2
-- OpenROAD
-- Yosys
-- Magic
-- KLayout
-- Netgen
-- Sky130 PDK
+<p align="center">
+<img src="docs/images/openlane_rtl_to_gdsii.png" width="900">
+</p>
 
 ---
 
-## Future Work
+## GDS Layout
 
-- Add complete verification testbench
-- Support additional Ethernet frame types
-- Improve buffering architecture
-- Add DMA interface
-- Extend to Gigabit Ethernet
+<p align="center">
+<img src="docs/images/gds_layout.png" width="700">
+</p>
 
 ---
 
 # 📚 Documentation
 
-Detailed project documentation is available below:
+Detailed project documentation is available below.
 
 | Document | Description |
 |----------|-------------|
@@ -134,6 +214,42 @@ Detailed project documentation is available below:
 | [Future Work](docs/future_work.md) | Planned enhancements |
 
 ---
-## Author
+
+# 🚀 Future Improvements
+
+- Gigabit Ethernet Support
+- AXI-Stream Interface
+- CRC Generation and Verification
+- VLAN Support
+- DMA Engine
+- Area Optimization
+- Power Optimization
+- Multi-Clock Support
+- UVM Verification Environment
+- FPGA Prototype
+- ASIC Tape-Out Preparation
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 👨‍💻 Author
 
 **Hemanth N**
+
+Bachelor of Engineering (Electronics & Communication Engineering)
+
+Mangalore Institute of Technology & Engineering (MITE)
+
+GitHub:
+https://github.com/Hemanth-n-reddy
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, please consider giving this repository a **Star ⭐**.
