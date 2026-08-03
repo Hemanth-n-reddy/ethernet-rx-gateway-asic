@@ -270,6 +270,35 @@ The Ethernet RX Gateway ASIC is implemented using the OpenLane RTL-to-GDSII flow
 ### Final GDSII Layout
 *Coming Soon*
 
+# 🚀 Project Roadmap
+
+- [x] Project planning and architecture
+- [x] RTL module design
+- [x] Testbench development
+- [x] Functional simulation
+- [x] RTL module hierarchy documentation
+- [x] RMII receive data flow documentation
+- [x] OpenLane RTL → GDSII flow documentation
+- [x] Floorplan documentation
+- [ ] RTL synthesis using OpenLane
+- [ ] Floorplanning using OpenLane
+- [ ] Standard cell placement
+- [ ] Clock Tree Synthesis (CTS)
+- [ ] Global and detailed routing
+- [ ] Static Timing Analysis (STA)
+- [ ] DRC verification
+- [ ] LVS verification
+- [ ] Final GDSII generation
+
+# 🛠️ Technologies Used
+
+- **HDL:** SystemVerilog
+- **Simulation:** Cadence Incisive (ncvlog / ncelab / ncsim)
+- **ASIC Flow:** OpenLane
+- **Physical Design:** OpenROAD
+- **PDK:** SKY130 HD
+- **Version Control:** Git & GitHub
+
 **Key Features**
 - Square die layout (1000 µm × 1000 µm)
 - Dedicated I/O pad ring
