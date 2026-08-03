@@ -192,6 +192,58 @@ ethernet-rx-gateway-asic/
 
 ---
 
+## 🏗️ OpenLane Floorplan
+
+The floorplan below shows the chip floorplan generated during the OpenLane physical design stage.
+
+<p align="center">
+  <img src="docs/images/floorplan_openlane.png" alt="OpenLane Floorplan" width="900">
+</p>
+
+### Floorplan Summary
+
+| Parameter | Value |
+|-----------|-------|
+| Die Area | 1000 µm × 1000 µm |
+| Core Area | 880 µm × 880 µm |
+| Utilization | ~48% |
+| Aspect Ratio | 1.00 |
+| Core Margin | 60 µm |
+| Row Height | 2.72 µm |
+
+**Key Features**
+- Square die layout (1000 µm × 1000 µm)
+- Dedicated I/O pad ring
+- Standard cell placement rows
+- Power rails around the core
+- Keepout margins for routing
+- Tap and decap cells for power integrity## 🏗️ OpenLane Floorplan
+
+The floorplan below shows the chip floorplan generated during the OpenLane physical design stage.
+
+<p align="center">
+  <img src="docs/images/floorplan_openlane.png" alt="OpenLane Floorplan" width="900">
+</p>
+
+### Floorplan Summary
+
+| Parameter | Value |
+|-----------|-------|
+| Die Area | 1000 µm × 1000 µm |
+| Core Area | 880 µm × 880 µm |
+| Utilization | ~48% |
+| Aspect Ratio | 1.00 |
+| Core Margin | 60 µm |
+| Row Height | 2.72 µm |
+
+**Key Features**
+- Square die layout (1000 µm × 1000 µm)
+- Dedicated I/O pad ring
+- Standard cell placement rows
+- Power rails around the core
+- Keepout margins for routing
+- Tap and decap cells for power integrity
+
 ## GDS Layout
 
 <p align="center">
