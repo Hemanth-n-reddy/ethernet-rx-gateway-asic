@@ -108,6 +108,20 @@ ethernet-rx-gateway-asic
 
 ---
 
+# 📚 Documentation
+
+Detailed project documentation is available below:
+
+| Document | Description |
+|----------|-------------|
+| [System Architecture](docs/architecture.md) | Complete system architecture and data flow |
+| [RTL Design](docs/rtl_design.md) | RTL hierarchy and module descriptions |
+| [Verification](docs/verification.md) | Functional verification methodology |
+| [OpenLane Flow](docs/openlane_flow.md) | RTL-to-GDSII implementation flow |
+| [Results](docs/results.md) | ASIC implementation metrics |
+| [Future Work](docs/future_work.md) | Planned enhancements |
+
+---
 ## Author
 
 **Hemanth N**
