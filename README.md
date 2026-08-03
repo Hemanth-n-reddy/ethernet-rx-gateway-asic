@@ -27,6 +27,21 @@ The design receives Ethernet frames through an RMII interface, buffers incoming 
 
 ---
 
+## 📊 Implementation Summary
+
+| Parameter | Value |
+|-----------|-------|
+| RTL Language | SystemVerilog |
+| Technology | Sky130 HD |
+| Physical Design Flow | OpenLane 2 |
+| Top Module | eth_rx_gateway_core |
+| Standard Cells | 1072 |
+| Cell Area | 10364.9 µm² |
+| Total Power | 1.003 mW |
+| Setup Violations | 0 |
+| Hold Violations | 0 |
+| GDS Generated | ✅ |
+
 ## Project Structure
 
 ```text
