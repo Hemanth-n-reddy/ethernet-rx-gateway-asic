@@ -42,22 +42,20 @@ The design receives Ethernet frames through an RMII interface, buffers incoming 
 | Hold Violations | 0 |
 | GDS Generated | ✅ |
 
-## Project Structure
+## 📂 Repository Structure
 
 ```text
-ethernet-rx-gateway-asic
-│
+ethernet-rx-gateway-asic/
 ├── rtl/
+├── openlane/
+├── reports/
+├── results/
+├── docs/
 ├── verification/
 ├── simulations/
-├── openlane/
-├── results/
-├── reports/
-├── docs/
-└── scripts/
+├── README.md
+└── LICENSE
 ```
-
----
 
 ## RTL Modules
 
