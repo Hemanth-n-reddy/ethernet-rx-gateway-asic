@@ -25,6 +25,10 @@
 
 # 📌 Project Overview
 
+<p align="center">
+  <img src="assets/project_overview.png" width="100%">
+</p>
+
 The **Ethernet RX Gateway ASIC** is a modular digital hardware design implemented in **SystemVerilog** for receiving Ethernet frames over an **RMII (Reduced Media Independent Interface)**. The design demonstrates the complete ASIC development lifecycle—from RTL design and functional verification to physical implementation and GDSII generation using the **Sky130A Open Process Design Kit (PDK)** and **OpenLane 2**.
 
 This project showcases industry-standard digital ASIC design practices, including modular RTL architecture, verification using simulation and waveform analysis, logic synthesis, floorplanning, placement, clock tree synthesis (CTS), routing, timing closure, DRC/LVS verification, and final layout generation.
@@ -85,7 +89,7 @@ This project showcases industry-standard digital ASIC design practices, includin
 # 🏗️ System Architecture
 
 <p align="center">
-<img src="assets/architecture.png" width="90%">
+  <img src="assets/architecture.png" width="100%">
 </p>
 
 The Ethernet RX Gateway consists of five major RTL modules that work together to receive, decode, buffer, and forward Ethernet packets.
