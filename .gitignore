@@ -1,23 +1,15 @@
-# OpenLane generated runs
-runs/
-
-# Logs
-*.log
+# Simulation outputs
+simulations/*.vcd
+simulations/*_sim
 
 # Temporary files
+*.log
 *.tmp
+*.swp
+*.out
+
+# GTKWave
+*.gtkw
 
 # Backup files
-*~
-
-# Python cache
-__pycache__/
-
-# VS Code
-.vscode/
-
-# Vim
-*.swp
-
-# macOS
-.DS_Store
+*.save
