@@ -2,64 +2,44 @@
 
 <p align="center">
 
-![SystemVerilog](https://img.shields.io/badge/HDL-SystemVerilog-blue?style=for-the-badge)
-![ASIC](https://img.shields.io/badge/Target-ASIC-success?style=for-the-badge)
-![OpenLane](https://img.shields.io/badge/OpenLane-RTL--to--GDS-orange?style=for-the-badge)
-![Sky130](https://img.shields.io/badge/PDK-SKY130-red?style=for-the-badge)
-![GitHub](https://img.shields.io/badge/Version%20Control-GitHub-black?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+<img src="assets/project_overview.png" width="100%">
+
+</p>
+
+<p align="center">
+
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog-RTL-blue)
+![OpenLane](https://img.shields.io/badge/OpenLane-v2.3.10-success)
+![Sky130A](https://img.shields.io/badge/PDK-Sky130A-orange)
+![OpenROAD](https://img.shields.io/badge/OpenROAD-Physical_Design-green)
+![Verification](https://img.shields.io/badge/Verification-Passed-brightgreen)
+![Timing](https://img.shields.io/badge/Timing-Clean-success)
+![DRC](https://img.shields.io/badge/DRC-0-success)
+![LVS](https://img.shields.io/badge/LVS-0-success)
+![GDSII](https://img.shields.io/badge/GDSII-Generated-blueviolet)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 </p>
 
 ---
 
-## 📖 Overview
+# 📌 Project Overview
 
-The **Ethernet RX Gateway ASIC** is a modular **SystemVerilog-based ASIC design** that implements an Ethernet Receive (RX) Gateway capable of receiving Ethernet frames through an RMII interface, parsing packets, buffering payload data, and forwarding synchronized packets for further processing.
+The **Ethernet RX Gateway ASIC** is a modular digital hardware design implemented in **SystemVerilog** for receiving Ethernet frames over an **RMII (Reduced Media Independent Interface)**. The design demonstrates the complete ASIC development lifecycle—from RTL design and functional verification to physical implementation and GDSII generation using the **Sky130A Open Process Design Kit (PDK)** and **OpenLane 2**.
 
-This project demonstrates a complete digital ASIC development workflow, beginning with RTL design and verification and progressing toward physical implementation using the **OpenLane RTL-to-GDSII flow** targeting the **SKY130 HD Process Design Kit (PDK)**.
-
-The primary goal of this project is to develop a reusable and scalable Ethernet receive subsystem while gaining practical experience in modern ASIC design methodologies.
-
----
-
-# 📑 Table of Contents
-
-- Overview
-- Project Objectives
-- Key Features
-- Tools & Technologies
-- ASIC Design Flow
-- Repository Structure
-- System Architecture
-- RTL Module Hierarchy
-- RMII Receive Data Flow
-- OpenLane RTL → GDSII Flow
-- OpenLane Floorplan
-- Module Description
-- Verification Strategy
-- Project Roadmap
-- Documentation
-- Future Enhancements
-- License
-- Author
+This project showcases industry-standard digital ASIC design practices, including modular RTL architecture, verification using simulation and waveform analysis, logic synthesis, floorplanning, placement, clock tree synthesis (CTS), routing, timing closure, DRC/LVS verification, and final layout generation.
 
 ---
 
 # 🎯 Project Objectives
 
-The objectives of this project include:
-
-- Design a modular Ethernet RX Gateway using SystemVerilog.
-- Implement an RMII-based Ethernet receiver.
-- Parse Ethernet frames efficiently.
-- Buffer incoming packets using FIFO memory.
-- Create a reusable RTL architecture.
-- Perform functional verification using self-checking testbenches.
-- Prepare the design for ASIC implementation.
-- Implement the design using OpenLane.
-- Generate a manufacturable GDSII layout.
-- Learn the complete RTL-to-GDSII ASIC design flow.
+- Design a modular Ethernet Receive Gateway in SystemVerilog
+- Implement an RMII receiver for Ethernet data capture
+- Parse Ethernet frames efficiently
+- Buffer packet data using synchronous FIFO
+- Verify functionality through simulation
+- Complete RTL-to-GDSII implementation using OpenLane 2
+- Achieve clean timing, DRC, and LVS results
 
 ---
 
@@ -68,164 +48,114 @@ The objectives of this project include:
 - RMII Ethernet Receiver
 - Ethernet Frame Parser
 - Packet Buffer
-- Synchronization FIFO
+- Synchronous FIFO
 - Modular RTL Architecture
-- ASIC Ready RTL
-- OpenLane Compatible Design
-- SKY130 HD Technology
-- Clean Module Hierarchy
-- Scalable Design
-- Industry-Oriented Documentation
+- Functional Verification
+- RTL-to-GDSII ASIC Flow
+- Static Timing Analysis (STA)
+- DRC & LVS Verification
+- GDSII Layout Generation
 
 ---
 
-# 🛠 Tools & Technologies
+# 📚 Table of Contents
 
-| Category | Tool |
-|-----------|------|
-| HDL | SystemVerilog |
-| Simulation | Cadence Incisive |
-| Synthesis | Yosys |
-| Physical Design | OpenLane 2 |
-| Physical Design Engine | OpenROAD |
-| DRC | Magic |
-| LVS | Netgen |
-| Layout Viewer | KLayout |
-| Timing Analysis | OpenROAD STA |
-| PDK | SKY130 HD |
-| Version Control | Git & GitHub |
+- Project Overview
+- Project Objectives
+- Key Features
+- System Architecture
+- RTL Hierarchy
+- RMII Receive Flow
+- Repository Structure
+- RTL Modules
+- Functional Verification
+- OpenLane ASIC Flow
+- Physical Design Results
+- ASIC Implementation Metrics
+- Generated Deliverables
+- Documentation
+- Tools Used
+- Skills Demonstrated
+- Future Enhancements
+- Author
+- License
 
 ---
 
-# 🔄 Complete ASIC Design Flow
+# 🏗️ System Architecture
 
-```text
-System Specification
-        │
-        ▼
-RTL Design
-        │
-        ▼
-Functional Verification
-        │
-        ▼
-Logic Synthesis
-        │
-        ▼
-Floorplanning
-        │
-        ▼
-Power Distribution Network
-        │
-        ▼
-Placement
-        │
-        ▼
-Clock Tree Synthesis
-        │
-        ▼
-Routing
-        │
-        ▼
-Static Timing Analysis
-        │
-        ▼
-DRC Verification
-        │
-        ▼
-LVS Verification
-        │
-        ▼
-GDSII Generation
+<p align="center">
+<img src="assets/architecture.png" width="90%">
+</p>
+
+The Ethernet RX Gateway consists of five major RTL modules that work together to receive, decode, buffer, and forward Ethernet packets.
+
+```
+                +----------------+
+ RMII PHY ----->|   RMII RX      |
+                +--------+-------+
+                         |
+                    Byte Stream
+                         |
+                +--------v-------+
+                | Frame Parser   |
+                +--------+-------+
+                         |
+                   Parsed Packets
+                         |
+                +--------v-------+
+                | Packet Buffer  |
+                +--------+-------+
+                         |
+                    FIFO Interface
+                         |
+                +--------v-------+
+                | Sync FIFO      |
+                +--------+-------+
+                         |
+                +--------v-------+
+                | Gateway Core   |
+                +----------------+
 ```
 
+Each block is implemented as an independent SystemVerilog module, making the design highly reusable and easy to verify.
+
 ---
 
-# 📁 Repository Structure
+# 🧩 RTL Hierarchy
 
-```text
-ethernet-rx-gateway-asic/
+<p align="center">
+<img src="assets/rtl_hierarchy.png" width="80%">
+</p>
 
-├── docs/
-│   ├── architecture.md
-│   ├── rtl_design.md
-│   ├── verification.md
-│   └── images/
-│       ├── project_overview.png
-│       ├── architecture.png
-│       ├── rtl_module_hierarchy.png
-│       ├── rmii_receive_data_flow.png
-│       ├── openlane_rtl_to_gdsii.png
-│       ├── floorplan_openlane.png
+```
+eth_rx_gateway_core
 │
-├── rtl/
+├── rmii_rx
 │
-├── tb/
+├── eth_frame_parser
 │
-├── README.md
+├── eth_packet_buffer
 │
-└── LICENSE
+├── sync_fifo
+│
+└── eth_rx_path
 ```
 
----
-
-# 🖼 Project Overview
-
-<p align="center">
-<img src="docs/images/project_overview.png" width="1000">
-</p>
+The hierarchy separates each functional stage of the receive pipeline, enabling modular verification and easier maintenance.
 
 ---
 
-# 🏗 System Architecture
+# 🔄 RMII Receive Flow
 
-<p align="center">
-<img src="docs/images/architecture.png" width="900">
-</p>
-
-The Ethernet RX Gateway is composed of several reusable RTL modules:
-
-- RMII Receiver
-- Frame Parser
-- Packet Buffer
-- Synchronization FIFO
-- Top-Level Gateway Controller
-
-Each module is independently verified and integrated through a hierarchical top-level architecture.
-
----
-
-# 📦 RTL Module Hierarchy
-
-<p align="center">
-<img src="docs/images/rtl_module_hierarchy.png" width="900">
-</p>
-
-The Ethernet RX Gateway follows a modular architecture where each block performs a dedicated function. This modularity simplifies verification, maintenance, and future enhancements.
-
-| Module | Description |
-|---------|-------------|
-| `eth_rx_gateway_core` | Top-level module integrating all RX components |
-| `rmii_rx` | Receives serial Ethernet data from the RMII interface |
-| `eth_frame_parser` | Decodes Ethernet frame headers and extracts payload |
-| `eth_packet_buffer` | Buffers received packets before forwarding |
-| `sync_fifo` | Synchronizes data between different processing stages |
-
----
-
-# 📡 RMII Receive Data Flow
-
-<p align="center">
-<img src="docs/images/rmii_receive_data_flow.png" width="700">
-</p>
-
-The receive path follows the sequence below:
-
-```text
-RMII Interface
+```
+Ethernet PHY
       │
       ▼
-RMII Receiver
+RMII RX Interface
+      │
+      ▼
+Byte Assembly
       │
       ▼
 Frame Parser
@@ -234,243 +164,801 @@ Frame Parser
 Packet Buffer
       │
       ▼
-Synchronization FIFO
+Synchronous FIFO
       │
       ▼
 Gateway Output
 ```
 
-### Receive Flow
-
-1. Ethernet frames arrive through the RMII interface.
-2. The RMII receiver reconstructs incoming bytes.
-3. The frame parser validates and extracts packet information.
-4. Packet data is temporarily stored in the packet buffer.
-5. The synchronization FIFO safely transfers data to downstream logic.
-6. The processed packet is forwarded to the gateway interface.
+Data arrives from the external Ethernet PHY over the 2-bit RMII interface. The receiver reconstructs incoming bytes, detects frame boundaries, parses Ethernet headers, buffers packet payloads, and forwards valid data through a synchronous FIFO.
 
 ---
 
-# ⚙️ OpenLane RTL → GDSII Flow
+# 📂 Repository Structure
+
+```text
+ethernet-rx-gateway-asic
+│
+├── assets/
+│   ├── project_overview.png
+│   ├── architecture.png
+│   ├── rtl_hierarchy.png
+│   ├── fifo_waveform.png
+│   ├── rmii_waveform.png
+│   └── final_layout.png
+│
+├── docs/
+│   ├── architecture.md
+│   ├── openlane_flow.md
+│   ├── results.md
+│   ├── rtl_design.md
+│   └── verification.md
+│
+├── openlane/
+│   ├── config.json
+│   └── runs/
+│
+├── rtl/
+│   ├── eth_frame_parser.sv
+│   ├── eth_packet_buffer.sv
+│   ├── eth_rx_gateway_core.sv
+│   ├── eth_rx_path.sv
+│   ├── rmii_rx.sv
+│   └── sync_fifo.sv
+│
+├── tb/
+│   ├── tb_eth_frame_parser.sv
+│   ├── tb_eth_packet_buffer.sv
+│   ├── tb_rmii_rx.sv
+│   └── tb_sync_fifo.sv
+│
+├── verification/
+│
+├── results/
+│   ├── def/
+│   ├── gds/
+│   ├── lef/
+│   ├── netlist/
+│   ├── reports/
+│   └── screenshots/
+│
+├── README.md
+└── LICENSE
+```
+
+---
+
+# 🧱 RTL Modules
+
+## 1. RMII Receiver (`rmii_rx.sv`)
+
+**Purpose**
+
+- Receives 2-bit RMII data
+- Reconstructs 8-bit bytes
+- Detects frame start
+- Detects frame end
+- Generates byte_valid
+
+---
+
+## 2. Ethernet Frame Parser (`eth_frame_parser.sv`)
+
+**Purpose**
+
+- Decodes Ethernet frames
+- Detects packet boundaries
+- Extracts payload
+- Generates parser status
+
+---
+
+## 3. Packet Buffer (`eth_packet_buffer.sv`)
+
+**Purpose**
+
+- Temporarily stores packet bytes
+- Interfaces with FIFO
+- Prevents packet loss
+- Supports sequential packet transfer
+
+---
+
+## 4. Synchronous FIFO (`sync_fifo.sv`)
+
+**Purpose**
+
+- Buffers received data
+- Supports simultaneous read/write
+- Full and Empty detection
+- Count tracking
+
+---
+
+## 5. Ethernet RX Gateway Core (`eth_rx_gateway_core.sv`)
+
+Top-level integration module connecting all RTL blocks into a complete Ethernet receive pipeline.
+
+```
+
+---
+
+## ✅ Part 2 Complete
+
+The README is already looking like a professional ASIC project.
+
+### Next (Part 3) will cover:
+- 🧪 Verification Methodology
+- ✅ FIFO Verification
+- ✅ RMII Verification
+- 📈 GTKWave screenshots
+- Testbench details
+- Simulation commands
+- Verification results
+
+This is where we'll showcase all the work you did with Icarus Verilog and GTKWave.
+
+---
+
+# 🧪 Functional Verification
+
+A comprehensive verification environment was developed to validate every RTL module before ASIC implementation. Each module was simulated independently using **Icarus Verilog**, and waveforms were analyzed with **GTKWave** to ensure correct functionality.
+
+The verification process focused on:
+
+- Functional correctness
+- Data integrity
+- Frame boundary detection
+- FIFO read/write behavior
+- Packet buffering
+- Byte reconstruction from RMII interface
+- Reset behavior
+- Corner-case validation
+
+---
+
+# 🔬 Verification Environment
+
+| Tool | Purpose |
+|------|----------|
+| Icarus Verilog | RTL Compilation & Simulation |
+| GTKWave | Waveform Analysis |
+| SystemVerilog | Testbench Development |
+
+---
+
+# 📦 Testbenches Developed
+
+| Module | Testbench |
+|---------|-----------|
+| RMII Receiver | `tb_rmii_rx.sv` |
+| Frame Parser | `tb_eth_frame_parser.sv` |
+| Packet Buffer | `tb_eth_packet_buffer.sv` |
+| Sync FIFO | `tb_sync_fifo.sv` |
+
+---
+
+# 🔍 FIFO Verification
+
+The synchronous FIFO was verified under multiple operating conditions.
+
+### Test Cases
+
+✅ Reset Verification
+
+- FIFO empty after reset
+- Count initialized correctly
+- Output cleared
+
+---
+
+✅ Write Operation
+
+- Sequential writes
+- Pointer increment
+- Count increment
+- Full flag validation
+
+---
+
+✅ Read Operation
+
+- Sequential reads
+- Pointer increment
+- Count decrement
+- Empty flag validation
+
+---
+
+✅ Simultaneous Read & Write
+
+- Data consistency
+- Stable count
+- Continuous operation
+
+---
+
+✅ Full Condition
+
+- FIFO reaches maximum capacity
+- Additional writes blocked
+
+---
+
+✅ Empty Condition
+
+- FIFO becomes empty
+- Additional reads blocked
+
+---
+
+# FIFO Simulation Waveform
 
 <p align="center">
-<img src="docs/images/openlane_rtl_to_gdsii.png" width="950">
+<img src="assets/fifo_waveform.png" width="95%">
 </p>
 
-The OpenLane flow converts the verified RTL into a manufacturable ASIC layout.
+The waveform verifies:
 
-The implementation stages include:
+- FIFO reset operation
+- Write enable functionality
+- Read enable functionality
+- Correct output data
+- Full and Empty flag transitions
 
-- RTL Synthesis
-- Floorplanning
-- Power Distribution Network (PDN)
-- Standard Cell Placement
-- Clock Tree Synthesis (CTS)
+---
+
+# 🌐 RMII Receiver Verification
+
+The RMII receiver reconstructs 8-bit Ethernet bytes from the incoming 2-bit RMII data stream.
+
+The following features were verified:
+
+- Dibit accumulation
+- Byte reconstruction
+- Byte valid generation
+- Frame start detection
+- Frame end detection
+- Reset behavior
+
+---
+
+# RMII Receiver Waveform
+
+<p align="center">
+<img src="assets/rmii_waveform.png" width="95%">
+</p>
+
+The waveform confirms:
+
+- Proper byte assembly
+- Correct byte_valid assertion
+- Frame boundary detection
+- Stable operation across clock cycles
+
+---
+
+# ▶ Simulation Commands
+
+Compile FIFO:
+
+```bash
+iverilog -g2012 rtl/sync_fifo.sv tb/tb_sync_fifo.sv -o simulations/sync_fifo_sim
+```
+
+Run Simulation:
+
+```bash
+vvp simulations/sync_fifo_sim
+```
+
+Open Waveform:
+
+```bash
+gtkwave simulations/sync_fifo.vcd
+```
+
+---
+
+Compile RMII Receiver:
+
+```bash
+iverilog -g2012 rtl/rmii_rx.sv tb/tb_rmii_rx.sv -o simulations/rmii_rx_sim
+```
+
+Run Simulation:
+
+```bash
+vvp simulations/rmii_rx_sim
+```
+
+Open Waveform:
+
+```bash
+gtkwave simulations/rmii_rx.vcd
+```
+
+---
+
+# ✅ Verification Summary
+
+| Verification Item | Status |
+|-------------------|--------|
+| RTL Compilation | ✅ Passed |
+| FIFO Verification | ✅ Passed |
+| RMII Verification | ✅ Passed |
+| Frame Parser Verification | ✅ Passed |
+| Packet Buffer Verification | ✅ Passed |
+| Functional Simulation | ✅ Passed |
+| Waveform Analysis | ✅ Completed |
+
+---
+
+# 🎯 Verification Highlights
+
+- 100% functional RTL simulation completed.
+- All major modules verified independently.
+- Waveforms analyzed using GTKWave.
+- Correct packet buffering and FIFO operation confirmed.
+- Frame boundary detection successfully validated.
+- Stable reset behavior observed across all modules.
+- Clean simulation flow before ASIC implementation.
+
+---
+
+# 🏭 RTL-to-GDSII ASIC Implementation
+
+After functional verification, the design was implemented using the **OpenLane 2 ASIC flow** targeting the **Sky130A Process Design Kit (PDK)**.
+
+The complete RTL-to-GDSII flow was successfully executed, generating all physical design and sign-off artifacts required for ASIC implementation.
+
+---
+
+# 🛠️ OpenLane 2 Design Flow
+
+<p align="center">
+<img src="assets/openlane_flow.png" width="95%">
+</p>
+
+The OpenLane flow automatically performs all major stages of ASIC implementation.
+
+```
+                 SystemVerilog RTL
+                        │
+                        ▼
+               RTL Synthesis (Yosys)
+                        │
+                        ▼
+                 Floorplanning
+                        │
+                        ▼
+                Power Distribution
+                        │
+                        ▼
+               Global Placement
+                        │
+                        ▼
+             Detailed Placement
+                        │
+                        ▼
+           Clock Tree Synthesis
+                        │
+                        ▼
+              Global Routing
+                        │
+                        ▼
+             Detailed Routing
+                        │
+                        ▼
+          Static Timing Analysis
+                        │
+                        ▼
+                 DRC & LVS
+                        │
+                        ▼
+                GDSII Generation
+```
+
+---
+
+# 📌 ASIC Flow Stages
+
+## 1. RTL Synthesis
+
+**Tool:** Yosys
+
+During synthesis:
+
+- RTL converted into gate-level netlist
+- Standard cells mapped
+- Logic optimization performed
+- Technology mapping completed
+
+**Generated Output**
+
+- Gate-Level Netlist
+- Logic Reports
+- Cell Utilization
+
+---
+
+## 2. Floorplanning
+
+The floorplanner determines:
+
+- Chip dimensions
+- Core area
+- IO placement
+- Power ring generation
+- Macro planning
+
+Configuration used:
+
+| Parameter | Value |
+|-----------|-------|
+| Core Utilization | 40% |
+| Target Density | 55% |
+
+---
+
+## 3. Placement
+
+During placement:
+
+- Standard cells positioned
+- Congestion reduced
+- Timing optimized
+- Routing resources balanced
+
+Both Global Placement and Detailed Placement completed successfully.
+
+---
+
+## 4. Clock Tree Synthesis (CTS)
+
+CTS distributes the clock signal throughout the design.
+
+Objectives:
+
+- Reduce skew
+- Minimize insertion delay
+- Balance clock network
+- Improve timing
+
+Clock Port:
+
+```
+clk
+```
+
+Clock Period:
+
+```
+20 ns
+```
+
+---
+
+## 5. Routing
+
+Routing connects every placed cell using metal layers.
+
+Completed stages:
+
 - Global Routing
 - Detailed Routing
-- Static Timing Analysis (STA)
-- Design Rule Check (DRC)
-- Layout Versus Schematic (LVS)
-- Final GDSII Generation
+- Routing Optimization
+- DRC Repair
+
+Final routing completed successfully.
 
 ---
 
-# 🏗️ OpenLane Floorplan
+## 6. Static Timing Analysis (STA)
+
+OpenROAD performed timing analysis for multiple process corners.
+
+Analysis included:
+
+- Setup Timing
+- Hold Timing
+- Clock Skew
+- Arrival Times
+- Required Times
+
+The design achieved **zero timing violations** across analyzed operating corners.
+
+---
+
+## 7. Design Rule Checking (DRC)
+
+Design Rule Checking verifies the physical layout against Sky130 manufacturing rules.
+
+Performed using:
+
+- Magic
+- KLayout
+
+Results:
+
+- No DRC violations
+- Manufacturable layout generated
+
+---
+
+## 8. Layout Versus Schematic (LVS)
+
+LVS ensures that the physical implementation exactly matches the synthesized netlist.
+
+Verification confirms:
+
+- Connectivity
+- Device matching
+- Pin matching
+- Net matching
+
+Result:
+
+✅ LVS Passed
+
+---
+
+# 📁 Generated Physical Design Files
+
+The OpenLane flow generated the following implementation artifacts:
+
+| File | Description |
+|------|-------------|
+| GDS | Final ASIC Layout |
+| DEF | Physical Placement |
+| LEF | Abstract Physical Model |
+| Gate-Level Netlist | Synthesized Design |
+| Liberty | Timing Libraries |
+| SPEF | Parasitic Extraction |
+| SDF | Timing Back-Annotation |
+| SPICE | Extracted Netlist |
+| SDC | Timing Constraints |
+
+---
+
+# 📦 Output Directory
+
+```
+results/
+│
+├── gds/
+│
+├── def/
+│
+├── lef/
+│
+├── netlist/
+│
+├── reports/
+│
+└── screenshots/
+```
+
+---
+
+# 📸 Final ASIC Layout
 
 <p align="center">
-<img src="docs/images/floorplan_openlane.png" width="950">
+<img src="assets/final_layout.png" width="95%">
 </p>
 
-The figure above illustrates the floorplanning stage of the physical implementation. During floorplanning, the die boundary, core region, standard-cell rows, and routing resources are organized before placement begins.
+The final physical layout was successfully generated after completing synthesis, placement, CTS, routing, DRC, and LVS verification.
 
-> **Note:** The floorplan image is included to illustrate the planned physical design flow. Actual implementation metrics and reports will be updated as the OpenLane flow progresses.
-
----
-
-# 🧩 Module Descriptions
-
-## 1. RMII Receiver
-
-**Purpose**
-
-Receives serial Ethernet data through the RMII interface and reconstructs bytes for higher-level processing.
-
-**Responsibilities**
-
-- RMII signal sampling
-- Byte reconstruction
-- Data synchronization
-- Frame reception
+The resulting GDSII layout represents the manufacturable implementation of the Ethernet RX Gateway ASIC.
 
 ---
 
-## 2. Ethernet Frame Parser
-
-**Purpose**
-
-Interprets Ethernet frame fields and extracts packet information.
-
-**Responsibilities**
-
-- Header decoding
-- Destination MAC extraction
-- Source MAC extraction
-- EtherType identification
-- Payload extraction
-
----
-
-## 3. Packet Buffer
-
-**Purpose**
-
-Temporarily stores received packet data before forwarding.
-
-**Responsibilities**
-
-- Packet buffering
-- Write control
-- Read control
-- Overflow protection
-
----
-
-## 4. Synchronization FIFO
-
-**Purpose**
-
-Provides reliable clock-domain synchronization and data buffering.
-
-**Responsibilities**
-
-- FIFO storage
-- Full/Empty detection
-- Safe data transfer
-- Flow control
-
----
-
-## 5. Ethernet RX Gateway Core
-
-**Purpose**
-
-Top-level module responsible for coordinating all receive-path operations.
-
-**Responsibilities**
-
-- Module integration
-- Data flow management
-- Packet forwarding
-- Control signal generation
-
----
-
-# ✅ Verification Strategy
-
-The RTL is verified using a self-checking SystemVerilog testbench.
-
-The verification process includes:
-
-- Functional simulation
-- Directed test cases
-- Packet reception testing
-- Buffer validation
-- FIFO verification
-- Output correctness checking
-
-The simulation environment is designed to ensure correct functionality before synthesis and physical implementation.
-
----
-
-# 📊 Current Project Status
+# ✅ OpenLane Flow Summary
 
 | Stage | Status |
 |--------|--------|
-| RTL Design | ✅ Completed |
-| Module Integration | ✅ Completed |
-| Functional Verification | ✅ In Progress |
-| Documentation | ✅ Completed |
-| OpenLane Preparation | ✅ Completed |
-| RTL Synthesis | ⏳ Planned |
-| Physical Design | ⏳ Planned |
-| Timing Analysis | ⏳ Planned |
-| DRC/LVS | ⏳ Planned |
-| GDSII Generation | ⏳ Planned |
+| RTL Synthesis | ✅ Completed |
+| Floorplanning | ✅ Completed |
+| Power Distribution | ✅ Completed |
+| Placement | ✅ Completed |
+| Clock Tree Synthesis | ✅ Completed |
+| Global Routing | ✅ Completed |
+| Detailed Routing | ✅ Completed |
+| Static Timing Analysis | ✅ Completed |
+| DRC | ✅ Passed |
+| LVS | ✅ Passed |
+| GDSII Generation | ✅ Completed |
 
 ---
 
-# 🚀 Project Roadmap
+# 📊 ASIC Implementation Results
 
-The following roadmap outlines the planned milestones for the Ethernet RX Gateway ASIC.
+The Ethernet RX Gateway ASIC was successfully implemented using the **OpenLane 2** automated RTL-to-GDSII flow targeting the **Sky130A Open Process Design Kit (PDK)**.
 
-| Milestone | Status |
-|-----------|:------:|
-| Project Planning | ✅ |
-| System Architecture | ✅ |
-| RTL Design | ✅ |
-| RTL Documentation | ✅ |
-| Testbench Development | ✅ |
-| Functional Verification | 🔄 In Progress |
-| RTL Synthesis | ⏳ Planned |
-| Floorplanning | ⏳ Planned |
-| Power Planning | ⏳ Planned |
-| Placement | ⏳ Planned |
-| Clock Tree Synthesis | ⏳ Planned |
-| Global Routing | ⏳ Planned |
-| Detailed Routing | ⏳ Planned |
-| Static Timing Analysis | ⏳ Planned |
-| DRC Verification | ⏳ Planned |
-| LVS Verification | ⏳ Planned |
-| GDSII Generation | ⏳ Planned |
+The final implementation completed all major physical design stages and produced manufacturable layout files with successful sign-off checks.
+
+---
+
+# 📈 Physical Design Metrics
+
+| Metric | Result |
+|---------|---------|
+| Standard Cell Area | **10,364.9 μm²** |
+| Die Area | **24,865.8 μm²** |
+| Setup WNS | **0 ns** |
+| Hold WNS | **0 ns** |
+| Setup TNS | **0 ns** |
+| Hold TNS | **0 ns** |
+| Routing DRC Errors | **0** |
+| Magic DRC Errors | **0** |
+| KLayout DRC Errors | **0** |
+| LVS Errors | **0** |
+| Worst IR Drop | **0.0011 V** |
+| XOR Differences | **0** |
+
+---
+
+# 🏆 Timing Summary
+
+The design successfully met timing requirements across all analyzed process corners.
+
+| Timing Check | Status |
+|--------------|---------|
+| Setup Timing | ✅ Passed |
+| Hold Timing | ✅ Passed |
+| Clock Skew Analysis | ✅ Passed |
+| Static Timing Analysis | ✅ Passed |
+
+No setup or hold violations were reported in the final implementation.
+
+---
+
+# 🧪 Physical Verification Summary
+
+| Verification | Result |
+|--------------|---------|
+| Design Rule Check (Magic) | ✅ PASS |
+| Design Rule Check (KLayout) | ✅ PASS |
+| Layout Versus Schematic | ✅ PASS |
+| XOR Verification | ✅ PASS |
+| Antenna Check | ✅ PASS |
+| Manufacturability Check | ✅ PASS |
+
+---
+
+# 📦 Generated Deliverables
+
+The OpenLane flow generated all standard ASIC deliverables.
+
+| Deliverable | Generated |
+|--------------|------------|
+| Gate-Level Netlist | ✅ |
+| DEF | ✅ |
+| LEF | ✅ |
+| GDSII | ✅ |
+| Liberty (.lib) | ✅ |
+| SPEF | ✅ |
+| SDF | ✅ |
+| SPICE Netlist | ✅ |
+| SDC Constraints | ✅ |
+| ODB Database | ✅ |
+
+---
+
+# 🛠️ Development Environment
+
+## Operating System
+
+- Ubuntu 24.04 LTS
+
+## Languages
+
+- SystemVerilog
+- TCL
+- Bash
+
+## Verification
+
+- Icarus Verilog
+- GTKWave
+
+## ASIC Flow
+
+- OpenLane 2
+- OpenROAD
+- Yosys
+- Magic
+- KLayout
+- Netgen
+
+## Process Design Kit
+
+- Sky130A
+
+---
+
+# 💻 Commands Used
+
+## RTL Simulation
+
+```bash
+iverilog -g2012 rtl/*.sv tb/*.sv
+vvp simulation.out
+gtkwave waveform.vcd
+```
+
+## OpenLane Flow
+
+```bash
+python -m openlane \
+    --dockerized \
+    --design-dir . \
+    openlane/config.json
+```
+
+---
+
+# 🎯 Skills Demonstrated
+
+This project demonstrates practical experience in:
+
+- RTL Design
+- Digital Logic Design
+- SystemVerilog
+- Ethernet Protocol Basics
+- RMII Interface
+- FIFO Design
+- Functional Verification
+- Testbench Development
+- Waveform Debugging
+- RTL Simulation
+- ASIC Design Flow
+- Logic Synthesis
+- Floorplanning
+- Placement
+- Clock Tree Synthesis
+- Global Routing
+- Detailed Routing
+- Static Timing Analysis
+- DRC Verification
+- LVS Verification
+- Physical Design
+- GDSII Generation
+- Git Version Control
+- Linux Development Environment
+
+---
+
+# 🚀 Future Improvements
+
+Future enhancements planned for this project include:
+
+- CRC-32 Checker
+- Ethernet MAC Integration
+- AXI-Stream Interface
+- DMA Engine
+- Packet Filtering
+- VLAN Support
+- ARP Processing
+- IPv4 Header Parsing
+- UDP Packet Processing
+- Gigabit Ethernet Support
+- UVM-Based Verification Environment
+- Formal Verification
+- FPGA Prototype using Vivado
 
 ---
 
 # 📚 Documentation
 
-Detailed documentation for every stage of the project is available in the **docs/** directory.
+Detailed project documentation is available in the `docs/` directory.
 
-| Document | Description |
-|----------|-------------|
-| **architecture.md** | Complete system architecture |
-| **rtl_design.md** | RTL hierarchy and module descriptions |
-| **verification.md** | Functional verification methodology |
-
----
-
-# 💻 Development Environment
-
-| Item | Details |
-|------|---------|
-| HDL | SystemVerilog |
-| Simulator | Cadence Incisive / Xcelium |
-| Synthesis | Yosys |
-| Physical Design | OpenLane 2 |
-| PDK | SKY130 HD |
-| Layout Viewer | KLayout |
-| DRC | Magic |
-| LVS | Netgen |
-| Timing Analysis | OpenROAD STA |
-| Version Control | Git |
-| Repository | GitHub |
-
----
-
-# 📈 Future Enhancements
-
-Future versions of the project may include:
-
-- Gigabit Ethernet Support
-- AXI-Stream Interface
-- CRC Generator and Checker
-- VLAN Packet Support
-- DMA Engine
-- Configurable Packet Filters
-- Multiple RX Queues
-- Power Optimization
-- Area Optimization
-- UVM-Based Verification Environment
-- FPGA Prototype Validation
-- ASIC Tape-Out Preparation
+- RTL Design
+- Architecture
+- Verification
+- OpenLane Flow
+- Results
+- Future Work
 
 ---
 
@@ -478,21 +966,13 @@ Future versions of the project may include:
 
 Contributions are welcome.
 
-If you would like to improve this project:
+If you would like to improve the design or add new features:
 
 1. Fork the repository.
-2. Create a feature branch.
+2. Create a new feature branch.
 3. Commit your changes.
-4. Push your branch.
+4. Push the branch.
 5. Open a Pull Request.
-
----
-
-# 📄 License
-
-This project is released under the **MIT License**.
-
-Feel free to use this project for educational and research purposes.
 
 ---
 
@@ -500,10 +980,16 @@ Feel free to use this project for educational and research purposes.
 
 **Hemanth N**
 
-Bachelor of Engineering  
 Electronics & Communication Engineering
 
-**Mangalore Institute of Technology & Engineering (MITE)**
+Interested in:
+
+- Digital Design
+- ASIC Design
+- Physical Design
+- RTL Verification
+- FPGA Development
+- VLSI Research
 
 GitHub:
 
@@ -511,36 +997,43 @@ https://github.com/Hemanth-n-reddy
 
 ---
 
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
 # 🌟 Acknowledgements
 
-This project was developed to gain practical experience in:
+Special thanks to the open-source EDA community for providing the tools that made this project possible.
 
-- Digital ASIC Design
-- RTL Design using SystemVerilog
-- Functional Verification
-- Open-Source ASIC Flow
-- Physical Design using OpenLane
-- SKY130 Process Design Kit
-- Git & GitHub Collaboration
-
-Special thanks to the open-source ASIC community for developing and maintaining tools such as **Yosys**, **OpenLane**, **OpenROAD**, **Magic**, **Netgen**, **KLayout**, and the **SKY130 PDK**, which make modern ASIC education and prototyping accessible.
+- OpenLane
+- OpenROAD
+- SkyWater Technology
+- Efabless
+- Yosys
+- Icarus Verilog
+- GTKWave
+- Magic VLSI
+- KLayout
+- Netgen
 
 ---
 
 # ⭐ Support
 
-If you found this project useful:
+If you found this project useful, please consider giving it a ⭐ on GitHub.
 
-⭐ Star this repository
-
-🍴 Fork the repository
-
-💡 Share feedback or suggestions through GitHub Issues
+It helps others discover the project and motivates further development.
 
 ---
 
 <p align="center">
 
-### 🚀 From RTL to GDSII — Learning ASIC Design One Stage at a Time.
+## ⭐ From RTL to GDSII ⭐
+
+**SystemVerilog → Verification → OpenLane → Sky130A → Physical Design → Manufacturable ASIC**
+
+**Designed and Implemented by Hemanth N**
 
 </p>
