@@ -2,12 +2,6 @@
 
 <p align="center">
 
-<img src="assets/project_overview.png" width="100%">
-
-</p>
-
-<p align="center">
-
 ![SystemVerilog](https://img.shields.io/badge/SystemVerilog-RTL-blue)
 ![OpenLane](https://img.shields.io/badge/OpenLane-v2.3.10-success)
 ![Sky130A](https://img.shields.io/badge/PDK-Sky130A-orange)
